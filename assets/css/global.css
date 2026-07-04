@@ -1,93 +1,326 @@
 @charset "utf-8";
+
+/* ========================================
+   SpaceX Dashboard Style - Minimalist Academic Theme
+   Keywords: 通透、克制、精密
+   ======================================== */
+
+/* CSS Variables */
+:root {
+  --color-primary: #111111;
+  --color-text: #333333;
+  --color-secondary: #666666;
+  --color-accent: #E82127;
+  --color-border: #EAEAEA;
+  --color-bg: #FFFFFF;
+  --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ========================================
+   1. Global Typography
+   ======================================== */
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    padding-top: 5.0rem;
+  font-family: var(--font-stack);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--color-text);
+  padding-top: 5rem;
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-weight: 700;
+  color: var(--color-primary);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
+h1, .h1 { font-size: 2rem; }
+h2, .h2 { font-size: 1.5rem; }
+h3, .h3 { font-size: 1.25rem; }
+
+p {
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+small, .text-muted {
+  color: var(--color-secondary) !important;
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   2. Navigation Bar - Frosted Glass
+   ======================================== */
+.navbar {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: none !important;
+  padding: 0.75rem 0;
+}
+
+.navbar-brand {
+  color: var(--color-primary) !important;
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+}
+
+.navbar-nav .nav-link {
+  color: var(--color-secondary) !important;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--color-primary) !important;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  color: var(--color-primary) !important;
+  font-weight: 500;
+}
+
+/* ========================================
+   3. Remove Cards - Content First
+   ======================================== */
 .card {
-    border-radius: 0.8rem!important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
-.card-img-overlay {
-    border-radius: 0.8rem!important;
+.card-body {
+  padding: 0 !important;
 }
 
-.rounded-xl {
-    border-radius: 0.8rem!important;
+/* Section spacing - use whitespace instead of borders */
+.card + .card,
+.mb-5 {
+  margin-bottom: 5rem !important;
 }
 
-.rounded-xl-bottom {
-    border-bottom-right-radius: 0.8rem !important;
-    border-bottom-left-radius: 0.8rem !important;
+/* ========================================
+   4. Links - Tesla Red Accent
+   ======================================== */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: background 0.2s ease;
+  padding: 0.1em 0.2em;
+  margin: -0.1em -0.2em;
+  border-radius: 3px;
 }
 
-.rounded-xl-top {
-    border-top-left-radius: 0.8rem !important;
-    border-top-right-radius: 0.8rem !important;
+a:hover {
+  color: var(--color-accent);
+  background: rgba(232, 33, 39, 0.05);
+  text-decoration: none;
 }
 
+/* Navbar links use different style */
+.navbar a {
+  color: var(--color-secondary);
+}
 
+.navbar a:hover {
+  color: var(--color-primary);
+  background: transparent;
+}
+
+/* Email text styling */
+.email-text {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+}
+
+/* ========================================
+   5. Profile & Portrait
+   ======================================== */
+.figure-img {
+  border-radius: 50% !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.3s ease;
+}
+
+.figure-img:hover {
+  transform: scale(1.02);
+}
+
+/* Profile text */
 .text-profile-position {
-    font-weight: 400;
+  color: var(--color-secondary);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
 }
 
 .text-profile-bio {
-    /* font-family: "Raleway"; */
-    font-weight: 400;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
-.navbar {
-    background-color: rgba(255, 255, 255, 0.6) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+.text-profile-bio ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.75rem;
 }
 
-.inline-badge {
-    height: 16px;
-    vertical-align: -10%;
-    margin-right: 2px;
-    line-break: unset;
+.text-profile-bio li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
-.no-break {
-    white-space: nowrap;
+.text-profile-bio li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ========================================
+   6. Publications & Content Blocks
+   ======================================== */
+.badge-publication {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  background: transparent;
+  padding: 0;
 }
 
 .cover-image {
-    width: 180px;
-    max-height: 120px;
+  width: 180px;
+  max-height: 120px;
+  border-radius: 4px;
+  object-fit: cover;
 }
 
 .abstract-body {
-    min-height: 100px;
+  min-height: 100px;
+  font-size: 0.9375rem;
+  color: var(--color-text);
 }
 
-img.lazy {
-    background-image: url('images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 50px 50px;
-    min-height: 80px;
+/* ========================================
+   7. Education & Awards
+   ======================================== */
+.inline-badge {
+  height: 16px;
+  vertical-align: -10%;
+  margin-right: 4px;
+  line-break: unset;
+  opacity: 0.9;
 }
 
+/* ========================================
+   8. Utilities
+   ======================================== */
+.no-break {
+  white-space: nowrap;
+}
+
+.rounded-xl,
+.rounded-xl-bottom,
+.rounded-xl-top {
+  border-radius: 0 !important;
+}
+
+/* Lazy loading placeholder */
+img.lazy,
 div.lazy {
-    background-image: url('images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 50px 50px;
-    min-height: 80px;
+  background-image: url('images/loading.gif');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 50px 50px;
+  min-height: 80px;
 }
 
-.badge-publication {
-    font-size: 100%;
+/* ========================================
+   9. Footer
+   ======================================== */
+.footer {
+  border-top: 1px solid var(--color-border) !important;
+  padding: 1.5rem 0 !important;
+  margin-top: 4rem !important;
+  background: transparent !important;
 }
 
-.email-text {
-    font-family: Source Code Pro, monospace;
+.footer .text-muted {
+  font-size: 0.8125rem;
+}
+
+/* ========================================
+   10. Responsive Adjustments
+   ======================================== */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9375rem;
+  }
+  
+  h1, .h1 {
+    font-size: 1.75rem;
+  }
+  
+  .card + .card,
+  .mb-5 {
+    margin-bottom: 3rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem !important;
+  }
+}
+
+/* ========================================
+   11. Selection & Focus States
+   ======================================== */
+::selection {
+  background: rgba(232, 33, 39, 0.1);
+  color: var(--color-primary);
+}
+
+a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   12. Scrollbar (Webkit)
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
 }
